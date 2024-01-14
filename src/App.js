@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Identity from "./pages/Identity";
+import TextComparator from "./components/text/TextComparator";
+import CharacterCounter from "./components/text/CharacterCounter";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Identity
+                toggleDarkMode={toggleDarkMode}
+                isDarkMode={isDarkMode}
+              />
+            </>
+          }
+        />
+        <Route
+          path="/text-tools/text-comparator"
+          element={
+            <>
+              <TextComparator
+                toggleDarkMode={toggleDarkMode}
+                isDarkMode={isDarkMode}
+              />
+            </>
+          }
+        />
+        <Route
+          path="/text-tools/character-counter"
+          element={
+            <>
+              <CharacterCounter
+                toggleDarkMode={toggleDarkMode}
+                isDarkMode={isDarkMode}
+              />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
-}
+};
+/*
 
+*/
 export default App;
