@@ -88,7 +88,6 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
           />
         </div>
       </div>
-      <AlertComponent />
         
       {
         diffVisible && (<ReactDiffViewer
@@ -102,6 +101,8 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
         />)
       }
       
+      <AlertComponent />
+
     </div>
   );
 };

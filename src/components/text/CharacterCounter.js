@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CharacterCounter = () => {
+const CharacterCounter = ({ toggleDarkMode, isDarkMode }) => {
   const [inputText, setInputText] = useState("");
 
   const handleInputChange = (event) => {
