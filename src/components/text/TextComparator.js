@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { showConfirmMessage, showErrorMessage } from "../../redux/actions";
+import { showConfirmMessage, showErrorMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 import ReactDiffViewer, { DiffMethod } from "react-diff-viewer";
 

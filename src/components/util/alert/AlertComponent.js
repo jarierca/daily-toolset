@@ -1,7 +1,7 @@
 // src/components/AlertComponent.js
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { hideMessage } from "../../../redux/actions";
+import { hideMessage } from "../../../redux/Actions";
 
 const AlertComponent = () => {
   const dispatch = useDispatch();

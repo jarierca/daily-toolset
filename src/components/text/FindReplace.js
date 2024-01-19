@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { showInfoMessage } from "./../../redux/actions";
+import { showInfoMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 
 const FindReplace = ({ toggleDarkMode, isDarkMode }) => {

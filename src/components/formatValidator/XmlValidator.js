@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { showConfirmMessage, showErrorMessage } from "./../../redux/actions";
+import { showConfirmMessage, showErrorMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 
 const XmlValidator = ({ toggleDarkMode, isDarkMode }) => {
@@ -18,8 +18,8 @@ const XmlValidator = ({ toggleDarkMode, isDarkMode }) => {
     try {
       const xmlDoc = parser.parseFromString(xmlText, "application/xml");
       if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
-        throw new Error("Error de análisis XML");
         dispatch(showErrorMessage({ message: "Error de análisis XML.", duration: 2000 }));
+        throw new Error("Error de análisis XML");
       }
       dispatch(showConfirmMessage({ message: "XML válido.", duration: 2000 }));
       setError("XML válido");
