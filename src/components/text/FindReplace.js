@@ -35,62 +35,45 @@ const FindReplace = ({ toggleDarkMode, isDarkMode }) => {
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(originalText);
-    dispatch(showInfoMessage({ message: "COPIADO.", duration: 2500 }));
+    dispatch(showInfoMessage({ message: "COPIED.", duration: 2500 }));
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Buscar & Remplazar</h2>
-      <div className="form-inline mb-2"> 
-        <div className="form-group mr-2">
-            <input
-                placeholder="Texto a buscar..."
-                type="text"
-                className="form-control"
-                id="searchText"
-                value={searchText}
-                onChange={handleSearchTextChange}
-                />
-        </div>
-        <div className="form-group mr-2">
-            <input
-                placeholder="Texto de Reemplazo..."
-                type="text"
-                className="form-control"
-                id="replaceText"
-                value={replaceText}
-                onChange={handleReplaceTextChange}
-                />
-        </div>
-      </div>
+    <div className="container mt-5">
       <div className="form-group">
+        <div className="form-header-group">
+          <div><h2 className="mb-4">Find & Replace</h2></div>
+          <div className="btn-row mb-4">
+             <button className="btn-icon btn-outline-secondary" onClick={handleReplaceClick}>
+              Replace
+            </button>
+            <button className="btn-icon btn-outline-secondary mx-3" onClick={handleClearClick} title="Clear">
+              <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clipRule="evenodd"/>
+              </svg>
+            </button>
+            <button className="btn-icon btn-outline-secondary" onClick={handleCopyClick} title="Copy">
+              <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M18 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1V9a4 4 0 0 0-4-4h-3a1.99 1.99 0 0 0-1 .267V5a2 2 0 0 1 2-2h7Z" clipRule="evenodd"/>
+                <path fillRule="evenodd" d="M8 7.054V11H4.2a2 2 0 0 1 .281-.432l2.46-2.87A2 2 0 0 1 8 7.054ZM10 7v4a2 2 0 0 1-2 2H4v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z" clipRule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div className="btn-row mb-4">
+          <input placeholder="Search text..." className="inpt-txt" type="text" value={searchText} onChange={handleSearchTextChange} />
+          <input placeholder="Replacement text..." className="inpt-txt" type="text" value={replaceText} onChange={handleReplaceTextChange} />
+        </div>
+
         <textarea
-          placeholder="Introduce un texto..."
+          placeholder="Enter text..."
           className="form-control"
-          id="originalText"
           rows="10"
           value={originalText}
-          onChange={handleOriginalTextChange}
-        ></textarea>
+          onChange={handleOriginalTextChange}>
+        </textarea>
       </div>
-      <button
-        className="btn btn-outline-secondary my-3"
-        onClick={handleReplaceClick}
-      >
-        Reemplazar
-      </button>
-      <button
-        className="btn btn-outline-secondary mx-3"
-        onClick={handleCopyClick}
-      >
-        Copiar
-      </button>
-      <button
-        className="btn btn-outline-secondary mx-3"
-        onClick={handleClearClick}
-      >
-        Limpiar
-      </button>
 
       <AlertComponent />
     </div>
@@ -98,3 +81,4 @@ const FindReplace = ({ toggleDarkMode, isDarkMode }) => {
 };
 
 export default FindReplace;
+

@@ -1,28 +1,21 @@
-# frontend/Dockerfile
-FROM node:16.3.0-alpine AS prod
+# Usa una imagen de Node.js compatible con tu aplicación React
+FROM node:16
 
+# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-COPY package.json /app
+# Copia todos los archivos del proyecto al directorio de trabajo en el contenedor
+COPY . .
 
-RUN npm install
+# Instala las dependencias
+RUN npm install --force
 
-COPY . /app
+# Establece la variable de entorno NODE_OPTIONS para deshabilitar los módulos ES
+ENV NODE_OPTIONS="--experimental-modules=false"
 
-RUN npm run build
+# Expone el puerto 3000 en el contenedor
+EXPOSE 3000
 
-FROM nginx:alpine
+# Comando por defecto para ejecutar la aplicación
+CMD ["npm", "start"]
 
-WORKDIR /usr/local/bin
-
-COPY --from=prod /app/build /usr/share/nginx/html
-
-COPY generate-config.sh .
-
-COPY custom-nginx.template /etc/nginx/conf.d/
-
-RUN chmod +x generate-config.sh
-
-EXPOSE 80
-
-ENTRYPOINT [ "/bin/sh", "generate-config.sh"]

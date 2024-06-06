@@ -35,10 +35,7 @@ const AlertComponent = () => {
   return (
     <>
       {isVisible && (
-        <div
-          className={`alert ${getMessageType()} position-fixed bottom-0 start-50 translate-middle-x`}
-          role="alert"
-        >
+        <div className={`alert ${getMessageType()} position-fixed bottom-0 start-50 translate-middle-x`} role="alert">
           {message}
         </div>
       )}

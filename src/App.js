@@ -1,13 +1,24 @@
 // src/App.js
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
+
+// Pages
+import TextTools from "./pages/text/TextTools";
+import Validator from "./pages/validator/Validator";
+import Security from "./pages/security/Security";
+import Encode from "./pages/encode/Encode";
+import Raffle from "./pages/raffle/Raffle";
 import Identity from "./pages/Identity";
+import Keyboard from "./pages/keyboard/Keyboard";
+import ToDoList from "./pages/toDoList/ToDoList";
+
+// Components
 import TextComparator from "./components/text/TextComparator";
 import CharacterCounter from "./components/text/CharacterCounter";
 import TextConverter from "./components/text/TextConverter";
 import FindReplace from './components/text/FindReplace';
-import JsonValidator from "./components/formatValidator/JsonValidator";
-import XmlValidator from "./components/formatValidator/XmlValidator";
+import JsonValidator from "./components/validator/JsonValidator";
+import XmlValidator from "./components/validator/XmlValidator";
 import PasswordGenerator from "./components/security/PasswordGenerator";
 import CoinFlip from "./components/raffle/CoinFlip";
 import RandomDraw from "./components/raffle/RandomDraw";
@@ -15,68 +26,60 @@ import CodeGenerator from "./components/text/CodeGenerator";
 import Base64EncoderDecoder from "./components/encode/Base64EncoderDecoder";
 import UrlEncoderDecoder from "./components/encode/UrlEncoderDecoder";
 import XMLDecoderEncoder from "./components/encode/XMLDecoderEncoder";
-import Header from "./components/util/Header";
+import Header from "./components/util/header/Header";
+
 import "./App.css";
 
-
 const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const defaultTheme = 'light';
+  const [theme, setTheme] = useState(defaultTheme);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const initialTheme = savedTheme || defaultTheme;
+    setTheme(initialTheme);
+    document.body.className = initialTheme;
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.body.className = newTheme;
+    localStorage.setItem('theme', newTheme);
+  }, [theme]);
 
   return (
-    <div className={isDarkMode ? "dark-mode" : "light-mode"}>
-      <Header />
-      <Routes>
-        <Route path="/"
-            element={<Identity toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/indentity"
-          element={<Identity toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/text/text-comparator"
-          element={<TextComparator toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/text/character-counter"
-          element={<CharacterCounter toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/text/text-converter"
-          element={<TextConverter toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route  path="/text/find-and-replace"
-          element={<FindReplace toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/text/code-generator"
-          element={<CodeGenerator toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/validator/json-validator"
-          element={<JsonValidator toggleDarkMode={toggleDarkMode}  isDarkMode={isDarkMode} />}/>
-
-        <Route path="/validator/xml-validator"
-          element={<XmlValidator toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-        
-        <Route path="/security/password-generator"
-          element={<PasswordGenerator toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-        
-        <Route path="/encode/base64"
-          element={<Base64EncoderDecoder toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-        
-        <Route path="/encode/url"
-          element={<UrlEncoderDecoder toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/encode/xml"
-          element={<XMLDecoderEncoder toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/raffle/coinflip"
-          element={<CoinFlip toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-        <Route path="/raffle/random-draw"
-          element={<RandomDraw toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />} />
-
-      </Routes>
-    </div>
+    <>
+      <Header toggleTheme={toggleTheme} theme={theme} />
+      <main className="app">
+        <Routes>
+          <Route path="/" element={<Identity />} />
+          <Route path="/text" element={<TextTools />} />
+          <Route path="/text/comparator" element={<TextComparator />} />
+          <Route path="/text/character-counter" element={<CharacterCounter />} />
+          <Route path="/text/converter" element={<TextConverter />} />
+          <Route path="/text/find-and-replace" element={<FindReplace />} />
+          <Route path="/text/code-generator" element={<CodeGenerator />} />
+          <Route path="/validator" element={<Validator />} />
+          <Route path="/validator/json" element={<JsonValidator />} />
+          <Route path="/validator/xml" element={<XmlValidator />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/security/password-generator" element={<PasswordGenerator />} />
+          <Route path="/encode" element={<Encode />} />
+          <Route path="/encode/base64" element={<Base64EncoderDecoder />} />
+          <Route path="/encode/url" element={<UrlEncoderDecoder />} />
+          <Route path="/encode/xml" element={<XMLDecoderEncoder />} />
+          <Route path="/raffle" element={<Raffle />} />
+          <Route path="/raffle/coinflip" element={<CoinFlip />} />
+          <Route path="/raffle/random-draw" element={<RandomDraw />} />
+          <Route path="/indentity" element={<Identity />} />
+          <Route path="/kbd" element={<Keyboard />} />
+          <Route path="/kbd/test" element={<Keyboard />} />
+          <Route path="/kbd/type" element={<Keyboard />} />
+          <Route path="/toDoList" element={<ToDoList />} />
+        </Routes>
+      </main>
+    </>
   );
 };
 

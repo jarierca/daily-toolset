@@ -1,34 +1,99 @@
 /* src/components/Card.css */
 
-.my-card .separator {
-  height: 1px;
-  background-color: #ccc;
-  margin: 10px 0;
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.my-card:hover {
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
+  display: flex;
+  width: 25rem;
+  height: 10rem;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  word-wrap: break-word;
+
+}
+
+.dark .card{
+  background-color: var(--dark);
+  color: var(--white);
+  border: 2px solid var(--dark-border);
+}
+
+.card:hover {
   box-shadow: 1px 8px 20px grey;
 }
 
-.children-content {
-    font-size: x-large;
+.separator {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  border: 1.5px solid #ccc;
 }
 
-.children-content:hover {
-    background-color: rgb(128, 128, 128, 0.8);
-    color: white;
+.dark .separator {
+  border-bottom: 1px solid var(--dark-border);
 }
 
-.font-icon {
-    cursor: pointer;
-    padding: 5px;
-}
-
-.my-card-title{
+.card-title{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+  & svg {
+      cursor: pointer;
+  }
 }
 
 .card-header {
-    padding: auto;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #cccccc;
+  
+  & h5{
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
 }
+
+.dark .card-header {
+  background-color: var(--dark-footer);
+  color: var(--white);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.card-body {
+  padding: 15px;
+  font-size: x-large;
+
+}
+.card-body-content{
+  padding: 15px;
+  text-align: left;
+}
+
+.card-body-content:hover {
+  background-color: rgb(128, 128, 128, 0.2);
+  padding: 15px;
+  border-radius: 10px;  
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+

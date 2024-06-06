@@ -7,7 +7,7 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [length, setLength] = useState(16);
-  const [useLetters, setUseLetters] = useState(true);
+  const [useLowercaseChars, setUseLowercaseChars] = useState(true);
   const [useNumbers, setUseNumbers] = useState(true);
   const [useSpecialChars, setUseSpecialChars] = useState(true);
   const [useUppercase, setUseUppercase] = useState(true);
@@ -18,8 +18,9 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
     const numberChars = "0123456789";
     const specialChars = "!@#$%^&*()_-+=<>?/{}";
 
-    let chars = lowercaseChars;
+    let chars = "";
 
+    if (useLowercaseChars) chars += lowercaseChars;
     if (useUppercase) chars += uppercaseChars;
     if (useNumbers) chars += numberChars;
     if (useSpecialChars) chars += specialChars;
@@ -44,10 +45,10 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Generador Contraseñas</h2>
+      <h2 className="mb-4">Password Generator</h2>
       <div className="row my-2">
         <div className="col-2">
-            Longitud de la Contraseña:
+            Password length:
         </div>
         <div className="col-2">
             <input
@@ -75,12 +76,12 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
         <input
           type="checkbox"
           className="form-check-input"
-          id="useLetters"
-          checked={useLetters}
-          onChange={() => setUseLetters(!useLetters)}
+          id="useLowercaseChars"
+          checked={useLowercaseChars}
+          onChange={() => setUseLowercaseChars(!useLowercaseChars)}
         />
-        <label className="form-check-label" htmlFor="useLetters">
-          Utilizar Letras (a - z)
+        <label className="form-check-label" htmlFor="useLowercaseChars">
+          Lowercase (a - z)
         </label>
       </div>
       <div className="form-check mb-2">
@@ -92,7 +93,7 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
           onChange={() => setUseNumbers(!useNumbers)}
         />
         <label className="form-check-label" htmlFor="useNumbers">
-          Utilizar Números (0 - 9)
+          Numbers (0 - 9)
         </label>
       </div>
       <div className="form-check mb-2">
@@ -104,7 +105,7 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
           onChange={() => setUseSpecialChars(!useSpecialChars)}
         />
         <label className="form-check-label" htmlFor="useSpecialChars">
-          Utilizar Caracteres Especiales (!@#$%^&*)
+          Special Characters (!@#$%^&*)
         </label>
       </div>
       <div className="form-check mb-2">
@@ -116,26 +117,27 @@ const PasswordGenerator = ({ toggleDarkMode, isDarkMode }) => {
           onChange={() => setUseUppercase(!useUppercase)}
         />
         <label className="form-check-label" htmlFor="useUppercase">
-          Utilizar Mayúsculas (A - Z)
+          Uppercase (A - Z)
         </label>
       </div>
-      <button className="btn btn-outline-secondary my-3" onClick={generatePassword}>
-        Generar Contraseña
-      </button>
-      <button
-        className="btn btn-outline-secondary mx-3"
-        onClick={handleCopyClick}
-      >
-        Copiar
-      </button>
-      <button
-        className="btn btn-outline-secondary"
-        onClick={handleClearClick}
-      >
-        Borrar
-      </button>
+        <button className="btn-icon btn-outline-secondary" onClick={generatePassword} title="Generate a password">
+          <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.651 7.65a7.131 7.131 0 0 0-12.68 3.15M18.001 4v4h-4m-7.652 8.35a7.13 7.13 0 0 0 12.68-3.15M6 20v-4h4"/>
+          </svg>
+        </button>
+        <button className="btn-icon btn-outline-secondary mx-3" onClick={handleClearClick} title="Clear">
+          <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fillRule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clipRule="evenodd"/>
+          </svg>
+        </button>
+        <button className="btn-icon btn-outline-secondary" onClick={handleCopyClick} title="Copy">
+          <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path fillRule="evenodd" d="M18 3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1V9a4 4 0 0 0-4-4h-3a1.99 1.99 0 0 0-1 .267V5a2 2 0 0 1 2-2h7Z" clipRule="evenodd"/>
+            <path fillRule="evenodd" d="M8 7.054V11H4.2a2 2 0 0 1 .281-.432l2.46-2.87A2 2 0 0 1 8 7.054ZM10 7v4a2 2 0 0 1-2 2H4v6a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z" clipRule="evenodd"/>
+          </svg>
+        </button>
       <div className="mt-3">
-        <label htmlFor="generatedPassword">Contraseña Generada:</label>
+        <label htmlFor="generatedPassword">Generated Password</label>
         <input
           type="text"
           className="form-control"
