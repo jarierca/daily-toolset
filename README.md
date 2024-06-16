@@ -80,7 +80,7 @@ To run the project using a Docker container, follow these steps:
 
 3. For a development container that auto-updates on changes, use:
    ```sh
-   docker run -it --rm -v /home/javi/workspace/dev/projects/daily-toolset:/app -p 3000:3000 daily-toolset
+   docker run -it --rm -v ~/daily-toolset:/app -p 3000:3000 daily-toolset
    ```
 
 ## Contribution
