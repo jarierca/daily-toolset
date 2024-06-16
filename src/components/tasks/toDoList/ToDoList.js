@@ -8,6 +8,7 @@ const ToDoList = () => {
   var loadAll = true;
   let soundEnabled = true;
   const sound = new Audio('/assets/todolist/complete-sound.wav');
+  sound.crossOrigin = 'anonymous';
   sound.preload = 'auto'; 
 
   useEffect(() => {

@@ -8,6 +8,10 @@ body {
   margin: 0;
 }
 
+.todolist-app {
+  margin-top: -1px;
+}
+
 .header-todolst {
   position: fixed;
   width: 100%;
