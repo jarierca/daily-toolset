@@ -1,0 +1,29 @@
+.paint-container {
+  width: 100vw;
+  text-align: center;
+}
+
+.controls {
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.paint-canvas {
+  border: 1px solid black;
+  cursor: crosshair;
+}
+
+.controls input[type="color"],
+.controls input[type="range"],
+.controls span {
+  margin-right: 10px;
+}
+
+.controls button {
+  margin-left: 10px;
+}
+

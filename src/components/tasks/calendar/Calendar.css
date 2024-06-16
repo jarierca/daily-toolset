@@ -1,0 +1,163 @@
+.calendar {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  width: 350px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-header button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  outline: none;
+  color: black;
+}
+
+.dark .calendar-header button {
+  color: var(--white);
+}
+
+.calendar-header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.week-days {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.week-days div {
+  width: calc(100% / 7);
+  text-align: center;
+  font-weight: bold;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.empty-day {
+  padding: 5px;
+  visibility: hidden;
+}
+
+.not-completed, .calendar-day.has-notes {
+  background-color: yellow;
+  color: black;
+}
+
+.all-completed {
+  background-color: cyan;
+  color: black;
+}
+
+.calendar-day.selected {
+  box-sizing: border-box;
+  border: 5px solid var(--light-green);
+}
+
+.notes-container {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #ccc;
+}
+
+.notes-summary {
+  width: 20%;
+  padding: 20px;
+}
+
+.notes-summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notes-summary ul li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid transparent;
+}
+
+.notes-summary ul li.selected {
+  border: 1px solid var(--mid-green);
+  border-radius: 10px;
+}
+
+.calendar {
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.notes-section {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+}
+
+.notes-title {
+  padding: 15px;
+}
+
+.notes-group {
+  padding: 0 0 15px 15px;
+  border-right: 1px solid #ccc;
+}
+
+.notes-summary {
+  overflow-y: auto;
+  max-height: 500px;
+  width: auto;
+}
+
+.notes-summary ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notes-summary ul li {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.notes-summary ul li .completed {
+  text-decoration: line-through;
+}
+
+.note-description {
+  flex: 1;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.no-notes {
+  text-align: center;
+  width: 100%;
+  padding: 30px;
+}
+

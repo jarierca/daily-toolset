@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import { useBarcode } from "next-barcode";
-import { useDispatch } from "react-redux";
 import { showInfoMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 
@@ -31,7 +30,7 @@ const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">QR & Barcode Generator</h2></div>
@@ -55,7 +54,7 @@ const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
           <input placeholder="Enter text:" type="text" className="inpt-txt" id="codeText" value={text} onChange={handleTextChange} />
         </div>
         
-        <div className="form-group mb-4">
+        <div className="form-group mb-4 px-5">
           <QRCode id="myQrCode" size={200} value={text} />
         </div>
 

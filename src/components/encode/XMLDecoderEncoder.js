@@ -58,7 +58,7 @@ const XmlEncoderDecoder = ({ toggleDarkMode, isDarkMode }) => {
     <div className="container mt-5">
       <div className="form-header-group">
         <div><h2 className="mb-4">XML Encoder/Decoder</h2></div>
-        <div className="btn-row">
+        <div className="btn-row mb-4">
           <button className="btn btn-outline-secondary" onClick={() => processXml(encodeXml)}>
             Encode
           </button>

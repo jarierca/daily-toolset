@@ -7,10 +7,13 @@ import AlertComponent from "../../components/util/alert/AlertComponent";
 
 const Validator = () => {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <h2>Validator Tools</h2>
 
       <JsonValidator />
+
+      <div className="separator mt-5"></div>
+
       <XmlValidator />
 
       <AlertComponent />

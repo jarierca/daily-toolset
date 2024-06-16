@@ -6,14 +6,12 @@ import AlertComponent from "../../components/util/alert/AlertComponent";
 
 const Security = () => {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <h2>Security Tools</h2>
 
-      <div className="row">
-        <div className="col-md-3">  
-            <PasswordGenerator />
-        </div>
-      </div>
+      <PasswordGenerator />
+
+      <div className="separator mt-5"></div>
 
       <AlertComponent />
     </div>

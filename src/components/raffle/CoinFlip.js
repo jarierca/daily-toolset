@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import headsImage from "./../../assets/coinflip/heads.png"; 
 import tailsImage from "./../../assets/coinflip/tails.png"; 
 

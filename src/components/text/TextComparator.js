@@ -54,7 +54,7 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">Text Comparator</h2></div>
@@ -72,14 +72,14 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
 
         <div className="btn-row mb-4">
           <textarea
-            className="form-control"
+            className="form-control mr-3"
             rows="15"
             value={text1}
             onChange={handleText1Change}
             placeholder="Text 1" />
 
           <textarea
-            className="form-control"
+            className="form-control ml-3"
             rows="15"
             value={text2}
             onChange={handleText2Change}

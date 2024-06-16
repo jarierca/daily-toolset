@@ -7,10 +7,13 @@ import AlertComponent from "../../components/util/alert/AlertComponent";
 
 const Raffle = () => {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <h2>Raffle Tools</h2>
 
       <CoinFlip />
+
+      <div className="separator mt-5"></div>
+
       <RandomDraw />
 
       <AlertComponent />

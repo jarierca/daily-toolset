@@ -39,7 +39,7 @@ const FindReplace = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">Find & Replace</h2></div>

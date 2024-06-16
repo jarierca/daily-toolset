@@ -8,25 +8,32 @@ body {
   margin: 0;
 }
 
-header {
+.header-todolst {
   position: fixed;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  z-index: 999;
+  width: 100%;
+  z-index: 1;
 }
 
-header, footer {
-  background-color: #222;
-  color: white;
+.header-todolst, .footer-todolst {
+  background-color: var(--ligth-grey);
+  color: black;
   padding: 20px;
   text-align: left;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+  border-bottom: 1px solid #444;
+  transition: background-color 0.5s, color 0.5s;
 }
 
-.dark-mode header, .dark-mode footer {
+.dark .header-todolst {
+  background-color: #222;
+  color: white;
+}
+
+.dark header, .dark footer {
   background-color: rgb(26, 28, 29);
 }
 
-main {
+.main-todolst {
   margin-bottom: 100px;  
   flex: 1;
 }
@@ -50,9 +57,13 @@ a {
 }
 
 .title, title-phone {
-  color:white !important;
+  color: black;
   text-decoration: none !important;
   cursor: pointer;
+}
+
+.dark .title {
+  color: white !important;
 }
 
 .theme-toggle {
@@ -66,16 +77,16 @@ a {
   display:flex;
 }
 
-.container {
+.container-todo {
   width: 80%;
-  margin: 65px auto 0;
+  margin: 0 auto 0;
   max-width: 60%;
   min-width: 30%;
-  padding: 20px;
+  padding: 100px 20px 20px 20px;
 }
 
-.container .form,
-.container table {
+.container-todo .form,
+.container-todo table {
   width: 100%;
 }
 
@@ -152,7 +163,7 @@ td {
   background-color: #cccccc;
 }
 
-.dark-mode .tr-task:hover {
+.dark .tr-task:hover {
   background-color: #1D1D1D;
 }
 
@@ -160,7 +171,7 @@ td {
   background-color: #cccccc;
 }
 
-.dark-mode .tr-subtask:hover {
+.dark .tr-subtask:hover {
   background-color: #1D1D1D;
 }
 
@@ -201,23 +212,23 @@ textarea {
   border: 2px solid #ccc;
 }
 
-.dark-mode input[type="text"],
-.dark-mode input[type="date"],
-.dark-mode input[type="checkbox"],
-.dark-mode input[type="radio"],
-.dark-mode textarea {
+.dark input[type="text"],
+.dark input[type="date"],
+.dark input[type="checkbox"],
+.dark input[type="radio"],
+.dark textarea {
   background-color: rgb(38, 42, 43);
   color: #fff;
   border-color: rgb(62, 68, 70);
 }
 
-.dark-mode {
+.dark {
   background-color: rgb(38, 42, 43);
   color: rgb(232, 230, 227);
   color-scheme: dark;
 }
 
-.dark-mode a {
+.dark a {
   color: #4CAF50;
 }
 
@@ -343,13 +354,19 @@ textarea {
 
 
 #settingsMenu {
+  color: black;
   display: none;
   position: absolute;
   top: 50px;
   right: 10px;
-  background-color: #222;
+  background-color: var(--white);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
+}
+
+.dark #settingsMenu {
+  color: white;
+  background-color: #222;
 }
 
 #settingsMenu.show {
@@ -399,9 +416,15 @@ textarea {
   position: absolute;
   top: 50px;
   right: auto;
-  background-color: #222;
+  background-color: var(--white);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
+  color: black;
+}
+
+.dark #listOptions {
+  background-color: #222;
+  color: white;
 }
 
 #listOptions.show {
@@ -409,6 +432,7 @@ textarea {
   flex-direction: column;
   margin-top: 10px;
   border: 2px solid #444;
+  box-sizing: border-box;
   border-radius: 10px;
   cursor: pointer;
   max-height: 150px;
@@ -422,11 +446,16 @@ textarea {
 
 #listNameLink {
   font-size: 23px;
-  display: inline-block; 
+  display: inline; 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 500px;
+  color: black;
+}
+
+.dark #listNameLink {
+  color: var(--mid-green);
 }
 
 .a-subtask{
@@ -434,7 +463,7 @@ textarea {
   font-weight: bold;
 }
 
-.dark-mode .a-subtask{
+.dark .a-subtask{
   color:white !important;
   font-weight: bold;
 }
@@ -447,12 +476,12 @@ textarea {
   background-color: #f0f0f0;
 }
 
-.dark-mode .task-row {
+.dark .task-row {
   background-color: #333333;
   color: #ffffff;
 }
 
-.dark-mode .subtask-row {
+.dark .subtask-row {
   background-color: #222222;
   color: #ffffff;
 }
@@ -470,7 +499,7 @@ textarea {
   padding: 2px !important;
 }
 
-.dark-mode .subtask-list-td{
+.dark .subtask-list-td{
   background-color: #00000029;
   padding: 5px !important;
 }
@@ -582,7 +611,7 @@ textarea {
 #countTasks {
   font-size: 12px;
   position: relative;
-  top: -9px;
+  top: -15px;
   right: 5px;
 }
 
@@ -596,7 +625,7 @@ textarea {
     font-size: 14px;
   }
 
-  .container {
+  .container-todo {
     max-width: 90%;
     min-width: 90%;
   }

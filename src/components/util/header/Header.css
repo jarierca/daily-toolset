@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+header {
+  z-index: 999;
+}
+
 .menu-wrapper {
   display: flex;
   position: fixed;
@@ -27,7 +31,8 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: #4CAF50;
+  filter: drop-shadow(-1px 1px black);
   font-size: 20px;
 }
 
@@ -79,6 +84,7 @@
   position: relative;
   transition: all 0.2s ease-in-out;
   font-weight: bold;
+  border: 1px solid transparent;
 }
 
 .navigation > li > .nav-link > svg {
@@ -94,8 +100,7 @@
 }
 
 .navigation > li:hover > .nav-link{
-  color: var(--white);
-  background: var(--dark-border);
+  border: 1px solid var(--dark-border);
 }
 
 .navigation > li:hover .dropdown{
@@ -162,26 +167,29 @@
   padding: 0.5rem;
   gap: 1rem;
   width: 100%;
-  transition: all 0.2s ease-in-out;
   border-radius: 1rem;
+  border: 1px solid transparent;
 }
 
 .list-items-with-description li a{
   text-decoration: none;
-  color: var(--link-gray);
 }
 
 li .item-title a {
   text-decoration: none;
-  color: var(--link-gray);
+}
+
+.dark li .item-title a:hover {
+  color: var(--white);
 }
 
 li .item-title a:hover {
-  color: var(--link-gray-hover);
+  color: var(--black);
 }
 
 .list-items-with-description li:hover {
-  background: var(--dark-border);
+  border: 1px solid var(--dark-border);
+  color: black;
 }
 
 .list-items-with-description li svg {
@@ -194,6 +202,9 @@ li .item-title a:hover {
 .item-title h3 {
   font-weight: 500;
   font-size: 0.875rem;
+}
+
+.dark .item-title h3 {
   color: var(--white);
 }
 

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Route, Routes } from "react-router-dom";
 
 // Pages
+import HomePage from "./pages/HomePage";
 import TextTools from "./pages/text/TextTools";
 import Validator from "./pages/validator/Validator";
 import Security from "./pages/security/Security";
@@ -10,22 +11,29 @@ import Encode from "./pages/encode/Encode";
 import Raffle from "./pages/raffle/Raffle";
 import Identity from "./pages/Identity";
 import Keyboard from "./pages/keyboard/Keyboard";
-import ToDoList from "./pages/toDoList/ToDoList";
+import Tasks from "./pages/tasks/Tasks";
 
 // Components
 import TextComparator from "./components/text/TextComparator";
 import CharacterCounter from "./components/text/CharacterCounter";
 import TextConverter from "./components/text/TextConverter";
 import FindReplace from './components/text/FindReplace';
+import CodeGenerator from "./components/text/CodeGenerator";
+import EmojiList from "./components/text/EmojiList";
+import LoremIpsumText from "./components/text/LoremIpsumText";
 import JsonValidator from "./components/validator/JsonValidator";
 import XmlValidator from "./components/validator/XmlValidator";
 import PasswordGenerator from "./components/security/PasswordGenerator";
 import CoinFlip from "./components/raffle/CoinFlip";
 import RandomDraw from "./components/raffle/RandomDraw";
-import CodeGenerator from "./components/text/CodeGenerator";
 import Base64EncoderDecoder from "./components/encode/Base64EncoderDecoder";
 import UrlEncoderDecoder from "./components/encode/UrlEncoderDecoder";
 import XMLDecoderEncoder from "./components/encode/XMLDecoderEncoder";
+import Paint from "./components/paint/Paint";
+import ToDoList from "./components/tasks/toDoList/ToDoList";
+import Notes from "./components/tasks/notes/Notes";
+import Calendar from "./components/tasks/calendar/Calendar";
+
 import Header from "./components/util/header/Header";
 
 import "./App.css";
@@ -53,13 +61,15 @@ const App = () => {
       <Header toggleTheme={toggleTheme} theme={theme} />
       <main className="app">
         <Routes>
-          <Route path="/" element={<Identity />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/text" element={<TextTools />} />
           <Route path="/text/comparator" element={<TextComparator />} />
           <Route path="/text/character-counter" element={<CharacterCounter />} />
           <Route path="/text/converter" element={<TextConverter />} />
           <Route path="/text/find-and-replace" element={<FindReplace />} />
           <Route path="/text/code-generator" element={<CodeGenerator />} />
+          <Route path="/text/emoji" element={<EmojiList />} />
+          <Route path="/text/lorem-ipsum" element={<LoremIpsumText />} />
           <Route path="/validator" element={<Validator />} />
           <Route path="/validator/json" element={<JsonValidator />} />
           <Route path="/validator/xml" element={<XmlValidator />} />
@@ -76,7 +86,11 @@ const App = () => {
           <Route path="/kbd" element={<Keyboard />} />
           <Route path="/kbd/test" element={<Keyboard />} />
           <Route path="/kbd/type" element={<Keyboard />} />
-          <Route path="/toDoList" element={<ToDoList />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/tasks/toDoList" element={<ToDoList />} />
+          <Route path="/tasks/notes" element={<Notes />} />
+          <Route path="/tasks/calendar" element={<Calendar />} />
+          <Route path="/paint" element={<Paint />} />
         </Routes>
       </main>
     </>

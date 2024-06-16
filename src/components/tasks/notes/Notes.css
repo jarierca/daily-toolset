@@ -1,0 +1,110 @@
+.notes-app {
+  display: flex;
+  height: 92vh;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.filter-notes,
+.add-note,
+.btn-row {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.add-note {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-notes {
+  margin: 0 0 1rem 0 !important;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px); 
+}
+
+.sidebar li {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 6px;
+}
+
+.sidebar li div {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.sidebar li strong,
+.sidebar li small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sidebar li.selected {
+  border: 1px solid var(--mid-green);
+  border-radius: 10px;
+}
+
+.dark .sidebar li.selected {
+  color: white;
+}
+
+.sidebar li button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
+strong {
+  text-decoration: underline;
+}
+
+.selected strong {
+  text-decoration: none;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px;
+}
+
+.main input, .main textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.main button {
+  padding: 10px 20px;
+}
+

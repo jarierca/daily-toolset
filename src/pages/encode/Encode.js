@@ -8,11 +8,17 @@ import AlertComponent from "../../components/util/alert/AlertComponent";
 
 const Encode = () => {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <h2>Encode Tools</h2>
 
       <Base64EncoderDecoder />
+
+      <div className="separator mt-5"></div>
+
       <UrlEncoderDecoder />
+
+      <div className="separator mt-5"></div>
+
       <XMLDecoderEncoder />
 
       <AlertComponent />

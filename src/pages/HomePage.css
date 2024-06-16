@@ -1,0 +1,23 @@
+/* src/pages/HomePage.css */
+.category-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 2px solid var(--dark-border);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 1rem;
+}
+
+.link-grid {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center; 
+}
+
