@@ -49,10 +49,10 @@ The Daily Toolset project is a web application built with React that helps users
 
 The Daily Toolset project has been developed using the following technologies:
 
-- **React**: For building the user interface and managing the application state.
+- **HTML5**: For the structure and content of the web page.
 - **CSS3**: For the design and styling of the user interface.
 - **JavaScript (ES6+)**: For the application logic and interactivity.
-- **HTML5**: For the structure and content of the web page.
+- **React**: For building the user interface and managing the application state.
 - **Git**: For version control of the source code.
 - **GitHub**: For hosting the project repository and facilitating collaboration with other developers.
 
