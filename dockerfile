@@ -1,21 +1,18 @@
-# Usa una imagen de Node.js compatible con tu aplicación React
-FROM node:16
+FROM node:16 AS build
 
-# Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copia todos los archivos del proyecto al directorio de trabajo en el contenedor
 COPY . .
 
-# Instala las dependencias
 RUN npm install --force
 
-# Establece la variable de entorno NODE_OPTIONS para deshabilitar los módulos ES
-ENV NODE_OPTIONS="--experimental-modules=false"
+RUN npm run build
 
-# Expone el puerto 3000 en el contenedor
-EXPOSE 3000
+FROM nginx:alpine
 
-# Comando por defecto para ejecutar la aplicación
-CMD ["npm", "start"]
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
 
