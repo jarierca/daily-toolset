@@ -10,9 +10,9 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode basename="/daily-toolset">
+  <React.StrictMode>
     <Provider store={Store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/daily-toolset">
         <App />
       </BrowserRouter>
     </Provider>
