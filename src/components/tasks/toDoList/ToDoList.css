@@ -456,6 +456,8 @@ textarea {
   text-overflow: ellipsis;
   max-width: 500px;
   color: black;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .dark #listNameLink {
@@ -594,7 +596,7 @@ textarea {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.92);
   display: none;
-  z-index: 997;
+  z-index: 1000;
   overflow: hidden;
 }
 
@@ -705,6 +707,7 @@ textarea {
   .menu-content {
     margin: 35px 15px;
     text-align: left;
+    display: grid;
   }
 
   #burger-menu {
@@ -768,6 +771,11 @@ textarea {
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    color: var(--black);
+  }
+
+  .dark .menu-toggle{
+    color: var(--white);
   }
   
   .config {
