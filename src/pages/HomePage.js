@@ -7,7 +7,7 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <div className="container">
-      <h1 className="mb-4">Bienvenido a Nuestra Aplicación</h1>
+      <h1 className="mb-4">Welcome to our application</h1>
       <div className="grid-container">
         {links.map((category, index) => (
           <div key={index} className="category-container">

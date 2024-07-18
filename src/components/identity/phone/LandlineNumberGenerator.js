@@ -13,7 +13,7 @@ const LandlineNumberGenerator = () => {
 
   return (
     <Card
-      title="Teléfono Fijo"
+      title="Telephone Number"
       onRefresh={() => setGeneratedLandlineNumber(generateRandomLandlineNumber)} >
       {generatedLandlineNumber && generatedLandlineNumber }
     </Card>

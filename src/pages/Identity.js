@@ -9,7 +9,6 @@ import AlertComponent from "../components/util/alert/AlertComponent";
 const Identity = () => {
   return (
     <div className="container">
-      <h1>Bienvenido a DailyToolset</h1>
       <h2>Identity</h2>
 
       <div className="row">

@@ -13,7 +13,7 @@ const PhoneNumberGenerator = ({ isDarkMode, toggleDarkMode }) => {
 
   return (
     <Card
-      title="Teléfono Móvil"
+      title="Phone Number"
       isDarkMode={isDarkMode}
       toggleDarkMode={toggleDarkMode}
       onRefresh={() => setGeneratedPhoneNumber(generateRandomMobileNumber)}
