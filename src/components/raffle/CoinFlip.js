@@ -19,10 +19,6 @@ const CoinFlip = ({ toggleDarkMode, isDarkMode }) => {
     }, 2500);
   };
 
-  const resetCoin = () => {
-    setResult("");
-  };
-
   useEffect(() => {
     let animationInterval;
 

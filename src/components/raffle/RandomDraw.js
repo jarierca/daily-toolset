@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { showInfoMessage, showErrorMessage } from "../../redux/Actions";
 
 const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
   const [participants, setParticipants] = useState("");
   const [winnersCount, setWinnersCount] = useState(1);
   const [winners, setWinners] = useState([]);
+  const dispatch = useDispatch();
 
   const handleParticipantsChange = (event) => {
     setParticipants(event.target.value);
@@ -17,13 +20,24 @@ const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
   const handleDraw = () => {
     const participantsArray = participants
       .split("\n")
-      .filter((participant) => participant.trim() !== "");
+      .map(participant => participant.trim())
+      .filter(Boolean);
+    
+    if (winnersCount > participantsArray.length) {
+      dispatch(showErrorMessage({ message: "El número de ganadores no puede ser mayor que el número de participantes.", duration: 2500 }));
+      return;
+    }
+    
     const shuffledParticipants = participantsArray.sort(
       () => Math.random() - 0.5
     );
     const selectedWinners = shuffledParticipants.slice(0, winnersCount);
     
     setWinners(selectedWinners);
+    
+    selectedWinners.forEach(winner => {
+      dispatch(showInfoMessage({ message: `Ganador: ${winner}`, duration: 2500 }));
+    });
   };
 
   const handleClear = () => {
@@ -31,6 +45,8 @@ const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
     setWinnersCount(1);
     setWinners([]);
   };
+
+  const isDrawDisabled = winnersCount > (participants.split("\n").filter(p => p.trim() !== "").length || 0);
 
   return (
     <div className="container mt-5">
@@ -48,7 +64,12 @@ const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
                   onChange={handleWinnersCountChange}
                 />
             </div>
-            <button className="btn-icon btn-outline-secondary" onClick={handleDraw} title="Validate">
+            <button
+              className="btn-icon btn-outline-secondary"
+              onClick={handleDraw}
+              title="Validate"
+              disabled={isDrawDisabled}
+            >
               <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
               </svg>
@@ -61,20 +82,20 @@ const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
           </div>
         </div>
 
-      <div className="form-group">
-        <textarea
-          className="form-control"
-          id="participantsTextarea"
-          rows="10"
-          value={participants}
-          onChange={handleParticipantsChange}
-          placeholder="Enter items (one per line):">
-        </textarea>
+        <div className="form-group">
+          <textarea
+            className="form-control"
+            id="participantsTextarea"
+            rows="10"
+            value={participants}
+            onChange={handleParticipantsChange}
+            placeholder="Enter items (one per line):"
+          />
+        </div>
       </div>
-    </div>
 
       {winners.length > 0 && (
-        <div className="alert alert-success" role="alert">
+        <div className="alert alert-success" role="alert" aria-live="polite">
           <h4 className="alert-heading">Ganadores:</h4>
           <ul>
             {winners.map((winner, index) => (
@@ -88,3 +109,4 @@ const RandomDraw = ({ toggleDarkMode, isDarkMode }) => {
 };
 
 export default RandomDraw;
+
