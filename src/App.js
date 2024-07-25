@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import TextTools from "./pages/text/TextTools";
 import Validator from "./pages/validator/Validator";
+import Formatter from "./pages/formatter/Formatter";
 import Security from "./pages/security/Security";
 import Encode from "./pages/encode/Encode";
 import Raffle from "./pages/raffle/Raffle";
@@ -21,15 +22,27 @@ import FindReplace from './components/text/FindReplace';
 import CodeGenerator from "./components/text/CodeGenerator";
 import EmojiList from "./components/text/EmojiList";
 import LoremIpsumText from "./components/text/LoremIpsumText";
+
 import JsonValidator from "./components/validator/JsonValidator";
 import XmlValidator from "./components/validator/XmlValidator";
+import HtmlValidator from "./components/validator/HtmlValidator";
+
+import JsonFormatter from "./components/formatter/JsonFormatter";
+import XmlFormatter from "./components/formatter/XmlFormatter";
+import HtmlFormatter from "./components/formatter/HtmlFormatter";
+import SqlFormatter from "./components/formatter/SqlFormatter";
+
 import PasswordGenerator from "./components/security/PasswordGenerator";
+
 import CoinFlip from "./components/raffle/CoinFlip";
 import RandomDraw from "./components/raffle/RandomDraw";
+
 import Base64EncoderDecoder from "./components/encode/Base64EncoderDecoder";
 import UrlEncoderDecoder from "./components/encode/UrlEncoderDecoder";
 import XMLDecoderEncoder from "./components/encode/XMLDecoderEncoder";
+
 import Paint from "./components/paint/Paint";
+
 import ToDoList from "./components/tasks/toDoList/ToDoList";
 import Notes from "./components/tasks/notes/Notes";
 import Calendar from "./components/tasks/calendar/Calendar";
@@ -62,6 +75,7 @@ const App = () => {
       <main className="app">
         <Routes>
           <Route path="/" element={<HomePage />} />
+
           <Route path="/text" element={<TextTools />} />
           <Route path="/text/comparator" element={<TextComparator />} />
           <Route path="/text/character-counter" element={<CharacterCounter />} />
@@ -70,22 +84,36 @@ const App = () => {
           <Route path="/text/code-generator" element={<CodeGenerator />} />
           <Route path="/text/emoji" element={<EmojiList />} />
           <Route path="/text/lorem-ipsum" element={<LoremIpsumText />} />
+
           <Route path="/validator" element={<Validator />} />
           <Route path="/validator/json" element={<JsonValidator />} />
           <Route path="/validator/xml" element={<XmlValidator />} />
+          <Route path="/validator/html" element={<HtmlValidator />} />
+
+          <Route path="/formatter" element={<Formatter />} />
+          <Route path="/formatter/json" element={<JsonFormatter />} />
+          <Route path="/formatter/xml" element={<XmlFormatter />} />
+          <Route path="/formatter/html" element={<HtmlFormatter />} />
+          <Route path="/formatter/sql" element={<SqlFormatter />} />
+
           <Route path="/security" element={<Security />} />
           <Route path="/security/password-generator" element={<PasswordGenerator />} />
+
           <Route path="/encode" element={<Encode />} />
           <Route path="/encode/base64" element={<Base64EncoderDecoder />} />
           <Route path="/encode/url" element={<UrlEncoderDecoder />} />
           <Route path="/encode/xml" element={<XMLDecoderEncoder />} />
+
           <Route path="/raffle" element={<Raffle />} />
           <Route path="/raffle/coinflip" element={<CoinFlip />} />
           <Route path="/raffle/random-draw" element={<RandomDraw />} />
+
           <Route path="/indentity" element={<Identity />} />
+
           <Route path="/kbd" element={<Keyboard />} />
           <Route path="/kbd/test" element={<Keyboard />} />
           <Route path="/kbd/type" element={<Keyboard />} />
+
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/tasks/toDoList" element={<ToDoList />} />
           <Route path="/tasks/notes" element={<Notes />} />
