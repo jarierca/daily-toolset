@@ -13,7 +13,15 @@ const links = [
   { label: "Validator", links: [
     { to: "/validator", label: "Validator Tools", svg: '' },
     { to: "/validator/json", label: "JSON", svg: '' },
-    { to: "/validator/xml", label: "XML", svg: '' }
+    { to: "/validator/xml", label: "XML", svg: '' },
+    { to: "/validator/html", label: "HTML", svg: '' }
+  ]},
+  { label: "Formatter", links: [
+    { to: "/formatter", label: "Formatter Tools", svg: '' },
+    { to: "/formatter/json", label: "JSON", svg: '' },
+    { to: "/formatter/xml", label: "XML", svg: '' },
+    { to: "/formatter/html", label: "HTML", svg: '' },
+    { to: "/formatter/sql", label: "SQL", svg: '' }
   ]},
   { label: "Security", links: [
     { to: "/security", label: "Security Tools", svg: '' },
