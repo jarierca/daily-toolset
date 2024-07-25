@@ -1,22 +1,20 @@
 import React, { useState } from "react";
-import QRCode from "qrcode.react";
-import { useBarcode } from "next-barcode";
-import { showInfoMessage } from "../../redux/Actions";
+import QRCode from 'react-qr-code';
+import Barcode from 'react-barcode';
 import AlertComponent from "../util/alert/AlertComponent";
 
 const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
   const [text, setText] = useState("Happy Hacking!!");
 
   const handleTextChange = (event) => {
-      setText(event.target.value);
-  };
+    const value = event.target.value;
+    if (value === "") {
+      setText(" ");
 
-  const { inputRef } = useBarcode({
-    value: text || " ",
-    options: {
-      background: "#ffffff",
-    },
-  });
+    } else {
+      setText(value);
+    }
+  };
 
   const downloadCode = (id) => {
     const qrCodeURL = document.getElementById(id)
@@ -51,7 +49,7 @@ const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
         </div>
         
         <div className="btn-row mb-4">
-          <input placeholder="Enter text:" type="text" className="inpt-txt" id="codeText" value={text} onChange={handleTextChange} />
+          <input placeholder="Enter text:" type="text" className="inpt-txt" id="codeText" value={text === " " ? "" : text} onChange={handleTextChange} />
         </div>
         
         <div className="form-group mb-4 px-5">
@@ -59,7 +57,7 @@ const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
         </div>
 
         <div className="form-group">
-          <canvas id="myBarCode" ref={inputRef} />
+          <Barcode id="myBarCode" value={text} />
         </div>
       </div>
 
