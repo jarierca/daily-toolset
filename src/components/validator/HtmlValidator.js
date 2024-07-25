@@ -1,38 +1,77 @@
-// JsonValidator.jsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { showInfoMessage, showSuccessMessage, showErrorMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 import "./validator.css";
 
-const JsonValidator = ({ toggleDarkMode, isDarkMode }) => {
+const HtmlValidator = ({ toggleDarkMode, isDarkMode }) => {
   const dispatch = useDispatch();
-  const [jsonText, setJsonText] = useState("");
+  const [htmlText, setHtmlText] = useState("");
   const [error, setError] = useState("");
 
-  const handleJsonChange = (event) => {
-    setJsonText(event.target.value);
+  const handleHtmlChange = (event) => {
+    setHtmlText(event.target.value);
     setError("");
+  };
+
+  const validateHtml = (htmlString) => {
+    const errors = [];
+    const tagStack = [];
+    const tagPattern = /<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>/g;
+    const selfClosingPattern = /<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*\/>/;
+
+    let match;
+    let lastIndex = 0;
+
+    while ((match = tagPattern.exec(htmlString)) !== null) {
+      const [fullMatch, tagName] = match;
+      const tagStartIndex = match.index;
+      const lineNumber = htmlString.slice(0, tagStartIndex).split('\n').length;
+
+      if (fullMatch.startsWith('</')) {
+        if (tagStack.length === 0 || tagStack[tagStack.length - 1] !== tagName) {
+          errors.push({ line: lineNumber, message: `Unmatched closing tag: ${fullMatch}` });
+        } else {
+          tagStack.pop();
+        }
+      } else if (selfClosingPattern.test(fullMatch)) {
+      } else {
+        tagStack.push(tagName);
+      }
+      
+      lastIndex = tagPattern.lastIndex;
+    }
+
+    tagStack.forEach(tag => {
+      errors.push({ line: htmlString.split('\n').length, message: `Unclosed tag: <${tag}>` });
+    });
+
+    return errors;
   };
 
   const handleValidateClick = () => {
     try {
-      JSON.parse(jsonText);
-      setError("Valid JSON");
-      dispatch(showSuccessMessage({ message: "Valid JSON.", duration: 2000 }));
+      const errors = validateHtml(htmlText);
+      if (errors.length === 0) {
+        setError("Valid HTML");
+        dispatch(showSuccessMessage({ message: "Valid HTML.", duration: 2000 }));
+      } else {
+        setError(`Error, invalid HTML:\n${errors.map(e => `Line ${e.line}: ${e.message}`).join('\n')}`);
+        dispatch(showErrorMessage({ message: `Error, invalid HTML. ${errors.length} error(s) found.`, duration: 2000 }));
+      }
     } catch (e) {
-      setError("Error, invalid JSON: " + e.message);
-      dispatch(showErrorMessage({ message: "Error, invalid JSON.", duration: 2000 }));
+      setError("Error, invalid HTML: " + e.message);
+      dispatch(showErrorMessage({ message: "Error, invalid HTML.", duration: 2000 }));
     }
   };
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(jsonText);
+    navigator.clipboard.writeText(htmlText);
     dispatch(showInfoMessage({ message: "COPIED.", duration: 2500 }));
   };
 
   const handleClearClick = () => {
-    setJsonText("");
+    setHtmlText("");
     setError("");
     dispatch(showInfoMessage({ message: "CLEARED.", duration: 2500 }));
   };
@@ -41,7 +80,7 @@ const JsonValidator = ({ toggleDarkMode, isDarkMode }) => {
     <div className="container mt-5">
       <div className="form-group">
         <div className="form-header-group">
-          <div><h2 className="mb-4">JSON Validator</h2></div>
+          <div><h2 className="mb-4">HTML Validator</h2></div>
           <div className="btn-row mb-4">
             <button className="btn-icon btn-outline-secondary" onClick={handleValidateClick} title="Validate">
               <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -64,10 +103,10 @@ const JsonValidator = ({ toggleDarkMode, isDarkMode }) => {
 
         <textarea
           className="form-control"
-          id="jsonTextarea"
+          id="htmlTextarea"
           rows="15"
-          value={jsonText}
-          onChange={handleJsonChange}>
+          value={htmlText}
+          onChange={handleHtmlChange}>
         </textarea>
       </div>
 
@@ -89,5 +128,5 @@ const JsonValidator = ({ toggleDarkMode, isDarkMode }) => {
   );
 };
 
-export default JsonValidator;
+export default HtmlValidator;
 

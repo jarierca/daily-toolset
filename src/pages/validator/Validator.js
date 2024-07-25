@@ -3,6 +3,7 @@ import React from "react";
 
 import JsonValidator from "../../components/validator/JsonValidator";
 import XmlValidator from "../../components/validator/XmlValidator";
+import HtmlValidator from "../../components/validator/HtmlValidator";
 import AlertComponent from "../../components/util/alert/AlertComponent";
 
 const Validator = () => {
@@ -15,6 +16,10 @@ const Validator = () => {
       <div className="separator mt-5"></div>
 
       <XmlValidator />
+
+      <div className="separator mt-5"></div>
+
+      <HtmlValidator />
 
       <AlertComponent />
     </div>

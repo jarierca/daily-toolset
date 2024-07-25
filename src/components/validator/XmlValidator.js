@@ -1,7 +1,7 @@
 // XmlValidator.jsx
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { showInfoMessage, showConfirmMessage, showErrorMessage } from "../../redux/Actions";
+import { showInfoMessage, showSuccessMessage, showErrorMessage } from "../../redux/Actions";
 import AlertComponent from "../util/alert/AlertComponent";
 import "./validator.css";
 
@@ -23,7 +23,7 @@ const XmlValidator = ({ toggleDarkMode, isDarkMode }) => {
         dispatch(showErrorMessage({ message: "XML parsing error.", duration: 2000 }));
         throw new Error("XML parsing error.");
       }
-      dispatch(showConfirmMessage({ message: "Valid XML.", duration: 2000 }));
+      dispatch(showSuccessMessage({ message: "Valid XML.", duration: 2000 }));
       setError("Valid XML");
     } catch (e) {
       setError("Error, invalid XML: " + e.message);
