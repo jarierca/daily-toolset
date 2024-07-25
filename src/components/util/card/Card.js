@@ -8,7 +8,7 @@ const Card = ({ title, children, onRefresh }) => {
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(children);
-    dispatch(showInfoMessage({ message: "COPIADO.", duration: 2500 }));
+    dispatch(showInfoMessage({ message: "Copied.", duration: 2500 }));
   };
 
   useEffect(() => {
