@@ -1118,8 +1118,9 @@ return (
               <span id="listNameLink" onClick={toggleListOptions}>default</span>
               <span id="countTasks" onClick={toggleListOptions}>(0)</span>
               <div id="listOptions" className="" onMouseLeave={hideListOptions}></div>
-              <span className="a-btn" id="editListNameButton" onClick={editListName} title="Edit List Name">📝</span>
-              <span className="a-btn" href="#" onClick={clearCurrentListTasks} title="Clear all tasks from the current list">🗑️</span>
+              <span className="a-btn" id="editListNameButton" onClick={editListName} title="Edit List Name" role="img" aria-label="Edit List Name">📝</span>
+              <span role="img" aria-label="Clear all tasks from the current list" className="a-btn" onClick={clearCurrentListTasks}>🗑️</span>
+
               <span id="toggleFilterButton" className="a-btn mobile-button" onClick={toggleFilter} title="Open/Close Filter">▼</span>
             </div>
           </div>
@@ -1131,7 +1132,7 @@ return (
                   <span className="close-menu" onClick={toggleBurgerMenu}>✕</span>
                   <span className="title-phone">To Do List</span>
                   <div>
-                    <span onClick={toggleSound} className="vol-icon" title="Toggle Sound">🔊</span>
+                    <span onClick={toggleSound} className="vol-icon" role="img" aria-label="Toggle Sound">🔊</span>
                   </div>
                 </div>
                 <span className="a-btn" onClick={exportTasks}>Export Tasks</span>
@@ -1142,8 +1143,8 @@ return (
           </div>
 
           <div className="config">
-            <div id="btn-sound" className="vol-icon" onClick={toggleSound} title="Toggle Sound">🔊</div>
-            <div className="gear-icon" onClick={toggleSettings} title="Toggle Config">⚙️</div>
+            <span role="img" aria-label="Toggle Sound" className="vol-icon" onClick={toggleSound}>🔊</span>
+            <span role="img" aria-label="Toggle Config" className="gear-icon" onClick={toggleSettings}>⚙️</span>
             <div id="settingsMenu" onMouseLeave={hideSettings}>
               <span id="toggleTaskFormButton" className="a-btn" onClick={() => toggleFormVisibility('addList')} title="Show/Hide New List Form">Toggle List Form</span>
               <span id="toggleListFormButton" className="a-btn" onClick={() => toggleFormVisibility('addTask')} title="Show/Hide New Task Form">Toggle Task Form</span>
@@ -1205,8 +1206,8 @@ return (
                 <button onClick={resetFilter} title="Clear filter">Reset</button>
               </div>
               <div>
-                <span className="a-btn" onClick={saveFilterValues} title="Save filter values">💾</span>
-                <span className="a-btn" onClick={clearFilterValues} title="Clear filter values">🗑</span>
+                <span role="img" aria-label="Save filter values" className="a-btn" onClick={saveFilterValues}>💾</span>
+                <span role="img" aria-label="Clear filter values" className="a-btn" onClick={clearFilterValues}>🗑️</span>
               </div>
             </div>
           </div>
@@ -1219,7 +1220,8 @@ return (
           <table id="taskTable">
             <thead>
               <tr>
-                <th className="subtasks-toggle a-btn toggle-all-subtasks" onClick={toggleAllSubtasksVisibility} title="Show all subtasks">👁️</th>
+                <th className="subtasks-toggle a-btn toggle-all-subtasks" role="button" onClick={toggleAllSubtasksVisibility} aria-label="Show all subtasks" tabIndex="0"><span role="img" aria-label="Show all subtasks">👁️</span></th>
+
                 <th className="subtasks-toggle"></th>
                 <th className="th-head-title">Title</th>
                 <th>Description</th>
