@@ -3,7 +3,9 @@ const initialState = {
   message: "",
   isMessageVisible: false,
   duration: 2500, 
+  msgType: 0,
 };
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -11,25 +13,33 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         message: action.payload.message,
-        duration: action.payload.duration || 2500,
-        msgType: 0,
+        duration: action.payload.duration,
         isMessageVisible: true,
+        msgType: action.msgType,
       };
     case "SHOW_ERROR_MESSAGE":
       return {
         ...state,
         message: action.payload.message,
-        duration: action.payload.duration || 2500,
-        msgType: -1,
+        duration: action.payload.duration,
         isMessageVisible: true,
+        msgType: action.msgType,
       };
-    case "SHOW_CONFIRM_MESSAGE":
+    case "SHOW_WARNING_MESSAGE":
       return {
         ...state,
         message: action.payload.message,
-        duration: action.payload.duration || 2500,
-        msgType: 1,
+        duration: action.payload.duration,
         isMessageVisible: true,
+        msgType: action.msgType,
+      };
+    case "SHOW_SUCCESS_MESSAGE":
+      return {
+        ...state,
+        message: action.payload.message,
+        duration: action.payload.duration,
+        isMessageVisible: true,
+        msgType: action.msgType,
       };
     case "HIDE_MESSAGE":
       return {

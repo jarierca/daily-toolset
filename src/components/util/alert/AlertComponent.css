@@ -1,44 +1,76 @@
 .alert {
-  -bs-alert-bg: transparent;
+  --bs-alert-bg: transparent;
   --bs-alert-padding-x: 1rem;
-  --bs-alert-padding-y: 1rem;
+  --bs-alert-padding-y: 0.5rem;
   --bs-alert-margin-bottom: 1rem;
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
   --bs-alert-border: var(--bs-border-width) solid var(--bs-alert-border-color);
-  --bs-alert-border-radius: var(--bs-border-radius);
+  --bs-alert-border-radius: 10px;
   --bs-alert-link-color: inherit;
-  position: relative;
+  position: absolute;
   padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
   margin-bottom: var(--bs-alert-margin-bottom);
   color: var(--bs-alert-color);
   background-color: var(--bs-alert-bg);
   border: var(--bs-alert-border);
   border-radius: var(--bs-alert-border-radius);
-
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  top: 80px;
+  right: 40px;
+  z-index: 9999;
+  height: 50px;
+  overflow: hidden;
 }
 
-.alert-success{
-  --bs-alert-color: var(--bs-success-text-emphasis);
-  --bs-alert-bg: var(--bs-success-bg-subtle);
-  --bs-alert-border-color: var(--bs-success-border-subtle);
-  --bs-alert-link-color: var(--bs-success-text-emphasis);
+.alert-info {
+  --bs-alert-color: #ffffff;
+  --bs-alert-bg: #004085;
+  --bs-alert-border-color: #003766;
 }
 
-.translate-middle-x {
-  transform: translateX(-50%) !important;
+.alert-success {
+  --bs-alert-color: #ffffff;
+  --bs-alert-bg: #28a745;
+  --bs-alert-border-color: #1e7e34;
 }
 
-.start-50 {
-  left: 50% !important;
+.alert-danger {
+  --bs-alert-color: #ffffff;
+  --bs-alert-bg: #721c24;
+  --bs-alert-border-color: #491217;
 }
 
-.bottom-0 {
-  bottom: 0 !important;
+.alert-warning {
+  --bs-alert-color: #212529;
+  --bs-alert-bg: #856404;
+  --bs-alert-border-color: #4b4b2f;
 }
 
-.position-fixed {
-  position: fixed !important;
+.progress-bar {
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bs-progress-bar-bg);
+  border-radius: 10px;
+  transition: width 0.1s linear;
 }
 
+.alert-info .progress-bar {
+  --bs-progress-bar-bg: #002752;
+}
 
+.alert-success .progress-bar {
+  --bs-progress-bar-bg: #1e7e34;
+}
+
+.alert-danger .progress-bar {
+  --bs-progress-bar-bg: #4a0e12;
+}
+
+.alert-warning .progress-bar {
+  --bs-progress-bar-bg: #6c4f00;
+}
