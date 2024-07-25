@@ -1,10 +1,12 @@
-FROM node:16 AS build
+FROM node:22 AS build
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
-RUN npm install --force
+RUN npm install
+
+COPY . .
 
 RUN npm run build
 
