@@ -4,20 +4,18 @@
   <meta charset="UTF-8">
   <title>Page Not Found</title>
   <script>
-    function getHostPathFromURL() {
-      return window.location.host;
-    }
     function getPathFromURL() {
       return window.location.pathname;
     }
 
     function redirectToRequestedPath() {
-      const host = getHostPathFromURL();
       const path = getPathFromURL();
+      const baseURL = 'https://jarierca.github.io';
+
       if (path && path !== '/') {
-        window.location.href = `${host}/${path}`;
+        window.location.href = `${baseURL}${path}`;
       } else {
-        window.location.href = `${host}/daily-toolset/`;
+        window.location.href = `${baseURL}/daily-toolset/`;
       }
     }
 
