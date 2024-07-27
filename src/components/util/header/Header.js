@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import links from '../../../data/links';
 
+import MoonIcon from '../../../assets/icons/svg/MoonIcon';
+import SunIcon from '../../../assets/icons/svg/SunIcon';
+
 const Header = ({ toggleTheme, theme }) => {
 
   useEffect(() => {
@@ -12,9 +15,11 @@ const Header = ({ toggleTheme, theme }) => {
   return (
     <header className="menu-wrapper">
       <div className="menu-bar">
-        <Link to="/" className="logo" title="Home" aria-label="home">
-          <h3>Daily ToolSet</h3>
-        </Link>
+        <h3>
+          <Link to="/" className="logo" title="Home" aria-label="home">
+            Daily ToolSet
+          </Link>
+        </h3>
         <nav>
           <ul className="navigation hide">
             {links.map((link) => (
@@ -56,7 +61,7 @@ const Header = ({ toggleTheme, theme }) => {
 
       <div className="action-buttons hide">
         <Link to="#" onClick={toggleTheme} className="theme-toggle" title="Toggle theme">
-          {theme === 'light' ? "🌙" : "☀️"}
+          {theme === 'light' ? <SunIcon width="24" height="24" /> : <MoonIcon width="24" height="24" />}
         </Link>
       </div>
       <div aria-label="Open menu" className="burger-menu"></div>
@@ -65,4 +70,3 @@ const Header = ({ toggleTheme, theme }) => {
 };
 
 export default Header;
-

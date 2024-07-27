@@ -8,6 +8,12 @@ header {
   z-index: 999;
 }
 
+.title {
+  color: var(--white) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
 .menu-wrapper {
   display: flex;
   position: fixed;
@@ -33,7 +39,7 @@ header {
   text-decoration: none;
   color: #4CAF50;
   filter: drop-shadow(-1px 1px black);
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .navigation {
