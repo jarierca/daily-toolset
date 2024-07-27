@@ -4,16 +4,20 @@
   <meta charset="UTF-8">
   <title>Page Not Found</title>
   <script>
+    function getHostPathFromURL() {
+      return window.location.host;
+    }
     function getPathFromURL() {
       return window.location.pathname;
     }
 
     function redirectToRequestedPath() {
+      const host = getHostPathFromURL();
       const path = getPathFromURL();
       if (path && path !== '/') {
-        window.location.href = `/${path}`;
+        window.location.href = `${host}/${path}`;
       } else {
-        window.location.href = '/';
+        window.location.href = `${host}/daily-toolset/`;
       }
     }
 
