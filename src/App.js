@@ -49,6 +49,8 @@ import Calendar from "./components/tasks/calendar/Calendar";
 
 import Header from "./components/util/header/Header";
 
+import NotFoundPage from "./pages/notFoundPage/NotFoundPage"; 
+
 import "./App.css";
 
 const App = () => {
@@ -119,6 +121,8 @@ const App = () => {
           <Route path="/tasks/notes" element={<Notes />} />
           <Route path="/tasks/calendar" element={<Calendar />} />
           <Route path="/paint" element={<Paint />} />
+
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
     </>
