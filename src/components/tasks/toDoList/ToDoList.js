@@ -2,6 +2,9 @@
 import React, { useEffect } from 'react';
 import "./ToDoList.css";
 
+import { MoonIconString } from '../../../assets/icons/svg/MoonIcon';
+import { SunIconString } from '../../../assets/icons/svg/SunIcon';
+
 const ToDoList = () => {
   var listsData = JSON.parse(localStorage.getItem("listsData")) || { default: { tasks: [], taskIdCounter: 0 } };
   var currentList = localStorage.getItem("currentList") || "default";
@@ -383,10 +386,10 @@ const ToDoList = () => {
     var theme = localStorage.getItem("theme");
     if (theme === "dark" || theme === null) {
       document.body.classList.add("dark-mode");
-      document.querySelectorAll('.theme-toggle').forEach(element => element.innerText = '🌙');
+      document.querySelectorAll('.theme-toggle').forEach(element => element.innerHtml = MoonIconString);
     } else {
       document.body.classList.remove("dark-mode");
-      document.querySelectorAll('.theme-toggle').forEach(element => element.innerText = '☀️');
+      document.querySelectorAll('.theme-toggle').forEach(element => element.innerHtml = SunIconString);
     }
   }
 
@@ -1106,7 +1109,7 @@ return (
     <div className="todolist-app">
       <div className="header-todolst">
         <nav>
-          <h1><a href="/toDoList" className="title">To Do List</a></h1>
+          <h1><a href="/toDoList" className="title-todo">To Do List</a></h1>
 
           <div className="burger-list-name">
             <div className="menu-toggle" onClick={toggleBurgerMenu}>

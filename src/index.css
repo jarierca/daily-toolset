@@ -16,7 +16,7 @@ index.css
   --gray: #E1E1E1;
   --gray-btn-second: #6c757d;
   --dark-gray: #646669;
-  --ligth-grey: #f8f8f8;
+  --ligth-grey: #e6e4e4;
   --black: #000000;
   /**/
   --primary: #000000;
@@ -37,6 +37,11 @@ code {
     monospace;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   transition: background-color 0.5s, color 0.5s;
   font-family: 'Open Sans', sans-serif;
@@ -51,6 +56,50 @@ body {
     background-color: var(--dark);
     color: var(--white);
   }
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: var(--dark-header);
+  color: #ffffff;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-developer {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.footer p {
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 .light header, .light footer {
@@ -119,6 +168,7 @@ body {
   color: var(--gray-btn-second);
   border-color: var(--gray-btn-second);
   cursor: pointer;
+  text-decoration: none;
   
   &:hover {
     background-color: var(--light-green) /*var(--gray-btn-second)*/;
@@ -233,5 +283,13 @@ input, textarea {
 .lorem-content {
   padding: 20px;
   border-radius: 10px;
+}
+
+
+/* Smartphones */
+@media only screen and (max-width: 600px) {
+  .footer-links {
+    display: block;
+  }
 }
 
