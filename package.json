@@ -2,7 +2,7 @@
   "name": "daily-toolset",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/daily-toolset",
+  "homepage": "https://jarierca.github.io/daily-toolset/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "@testing-library/jest-dom": "^6.4.8",
