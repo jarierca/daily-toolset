@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found</title>
+  <script>
+    function getPathFromURL() {
+      return window.location.pathname;
+    }
+
+    function redirectToRequestedPath() {
+      const path = getPathFromURL();
+      if (path && path !== '/') {
+        window.location.href = `/${path}`;
+      } else {
+        window.location.href = '/';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', redirectToRequestedPath);
+  </script>
+</head>
+<body>
+  <h1>Page Not Found</h1>
+  <p>Redirecting...</p>
+</body>
+</html>
+
