@@ -48,6 +48,7 @@ import Notes from "./components/tasks/notes/Notes";
 import Calendar from "./components/tasks/calendar/Calendar";
 
 import Header from "./components/util/header/Header";
+import Footer from "./components/util/footer/Footer";
 
 import NotFoundPage from "./pages/notFoundPage/NotFoundPage"; 
 
@@ -74,6 +75,7 @@ const App = () => {
   return (
     <>
       <Header toggleTheme={toggleTheme} theme={theme} />
+
       <main className="app">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -125,6 +127,8 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
+
+      <Footer toggleTheme={toggleTheme} theme={theme} />
     </>
   );
 };
