@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
           <div className="footer-col">
             <p>
-              <a href="https://github.com/jarierca/daily-toolset" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/jarierca/daily-toolset?tab=readme-ov-file#floss-freelibre-and-open-source-software">
                 Privacy Policy
               </a>
             </p>

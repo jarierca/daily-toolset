@@ -43,6 +43,10 @@ import XMLDecoderEncoder from "./components/encode/XMLDecoderEncoder";
 
 import Paint from "./components/paint/Paint";
 
+import KeyboardTest from './components/keyboard/KeyboardTest';
+import TypingTest from './components/keyboard/TypingTest';
+import Results from './components/keyboard/Results';
+
 import ToDoList from "./components/tasks/toDoList/ToDoList";
 import Notes from "./components/tasks/notes/Notes";
 import Calendar from "./components/tasks/calendar/Calendar";
@@ -115,8 +119,8 @@ const App = () => {
           <Route path="/indentity" element={<Identity />} />
 
           <Route path="/kbd" element={<Keyboard />} />
-          <Route path="/kbd/test" element={<Keyboard />} />
-          <Route path="/kbd/type" element={<Keyboard />} />
+          <Route path="/kbd/test" element={<KeyboardTest />} />
+          <Route path="/kbd/type" element={<TypingTest />} />
 
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/tasks/toDoList" element={<ToDoList />} />
