@@ -15,7 +15,7 @@ const CharacterCounter = ({ toggleDarkMode, isDarkMode }) => {
   const characterCount = inputText.length;
 
   return (
-    <div className="container mt-5 px-5">
+    <div className="container px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">Character Counter</h2></div>

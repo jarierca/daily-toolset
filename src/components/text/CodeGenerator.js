@@ -28,7 +28,7 @@ const CodeGenerator = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5 px-5">
+    <div className="container px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">QR & Barcode Generator</h2></div>

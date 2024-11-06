@@ -42,7 +42,6 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
     setDiffVisible(false);
   };
 
-  // Compute diffs between the two texts
   const computeDiff = (text1, text2) => {
     const diff = [];
     const lines1 = text1.split("\n");
@@ -132,7 +131,7 @@ const TextComparator = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5 px-5">
+    <div className="container px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">Text Comparator</h2></div>

@@ -5,6 +5,7 @@ import TextComparator from "../../components/text/TextComparator";
 import CharacterCounter from "../../components/text/CharacterCounter";
 import CodeGenerator from "../../components/text/CodeGenerator";
 import FindReplace from "../../components/text/FindReplace";
+import SplitTextPositions from "../../components/text/SplitTextPositions";
 import TextConverter from "../../components/text/TextConverter";
 import EmojiList from "../../components/text/EmojiList";
 import LoremIpsumText from "../../components/text/LoremIpsumText";
@@ -29,6 +30,10 @@ const TextTools = () => {
       <div className="separator mt-5"></div>
 
       <FindReplace />
+
+      <div className="separator mt-5"></div>
+
+      <SplitTextPositions />
       
       <div className="separator mt-5"></div>
 

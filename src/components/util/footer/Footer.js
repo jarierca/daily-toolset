@@ -5,6 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
+        {/*
         <div className="footer-developer">
           <p>Developed by&nbsp;
             <a href="https://github.com/jarierca" target="_blank" rel="noopener noreferrer">
@@ -12,6 +13,7 @@ const Footer = () => {
             </a>
           </p>
         </div>
+        */}
         <div className="footer-links">
           <div className="footer-col">
             <p>

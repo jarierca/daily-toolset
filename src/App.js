@@ -10,7 +10,7 @@ import Formatter from "./pages/formatter/Formatter";
 import Security from "./pages/security/Security";
 import Encode from "./pages/encode/Encode";
 import Raffle from "./pages/raffle/Raffle";
-import Identity from "./pages/Identity";
+import Data from "./pages/data/Data";
 import Keyboard from "./pages/keyboard/Keyboard";
 import Tasks from "./pages/tasks/Tasks";
 
@@ -19,6 +19,7 @@ import TextComparator from "./components/text/TextComparator";
 import CharacterCounter from "./components/text/CharacterCounter";
 import TextConverter from "./components/text/TextConverter";
 import FindReplace from './components/text/FindReplace';
+import SplitTextPositions from './components/text/SplitTextPositions';
 import CodeGenerator from "./components/text/CodeGenerator";
 import EmojiList from "./components/text/EmojiList";
 import LoremIpsumText from "./components/text/LoremIpsumText";
@@ -89,6 +90,7 @@ const App = () => {
           <Route path="/text/character-counter" element={<CharacterCounter />} />
           <Route path="/text/converter" element={<TextConverter />} />
           <Route path="/text/find-and-replace" element={<FindReplace />} />
+          <Route path="/text/split-positions" element={<SplitTextPositions />} />
           <Route path="/text/code-generator" element={<CodeGenerator />} />
           <Route path="/text/emoji" element={<EmojiList />} />
           <Route path="/text/lorem-ipsum" element={<LoremIpsumText />} />
@@ -116,7 +118,7 @@ const App = () => {
           <Route path="/raffle/coinflip" element={<CoinFlip />} />
           <Route path="/raffle/random-draw" element={<RandomDraw />} />
 
-          <Route path="/indentity" element={<Identity />} />
+          <Route path="/data" element={<Data />} />
 
           <Route path="/kbd" element={<Keyboard />} />
           <Route path="/kbd/test" element={<KeyboardTest />} />

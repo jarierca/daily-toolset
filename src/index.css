@@ -30,6 +30,11 @@ index.css
   --link-gray-hover: #171717;
   --gray-border: #E6E6E6;
   --white: #FCFCFC;
+  --header-color: var(--black);
+}
+
+.dark{
+  --header-color: var(--white);
 }
 
 code {
@@ -190,7 +195,7 @@ body {
   padding: 0.5rem;
   font-size: 1rem;
   width: 100%;
-  margin: 5px;
+  /*margin: 5px;*/
 }
 
 .mt-5 {
@@ -285,6 +290,40 @@ input, textarea {
   border-radius: 10px;
 }
 
+.line-container {
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.separator-v2 {
+  height: 2px;
+  background-color: #ccc;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.line-number {
+  text-align: center;
+  flex: 0;
+}
+
+.line-part {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  padding: 2px 35px;
+}
+
+.split-results {
+/*  text-align: left;
+  border: 2px solid var(--dark-border);
+  border-radius: 0.25rem;*/
+  text-align: left;
+}
 
 /* Smartphones */
 @media only screen and (max-width: 600px) {

@@ -6,9 +6,10 @@ const links = [
     { to: "/text/character-counter", label: "Character Counter", svg: '' },
     { to: "/text/converter", label: "Text Converter", svg: '' },
     { to: "/text/find-and-replace", label: "Find & Replace", svg: '' },
+    { to: "/text/split-positions", label: "Split By Postitions", svg: '' },
     { to: "/text/code-generator", label: "Code Generator", svg: '' },
     { to: "/text/emoji", label: "Emoji List", svg: '' },
-    { to: "/text/lorem-ipsum", label: "Lorem Ipsum Text", svg: '' }
+    { to: "/text/lorem-ipsum", label: "Lorem Ipsum", svg: '' }
   ]},
   { label: "Validator", links: [
     { to: "/validator", label: "Validator Tools", svg: '' },
@@ -38,7 +39,7 @@ const links = [
     { to: "/raffle/coinflip", label: "Coin Flip", svg: '' },
     { to: "/raffle/random-draw", label: "Random Draw", svg: '' }
   ]},
-  { label: "Indentity", links: [{ to: "/indentity", label: "Identity", svg: '' }] },
+  { label: "Data", links: [{ to: "/data", label: "Data", svg: '' }] },
   { label: "Keyboard", links: [
     { to: "/kbd", label: "Keyboard Tools", svg: '' },
     { to: "/kbd/test", label: "Keyboard Test", svg: '' },

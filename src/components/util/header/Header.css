@@ -66,7 +66,7 @@ header {
 }
 
 .navigation > li > a:hover {
-  color: var(--link--hover);
+  color: var(--link-hover);
 }
 
 .navigation > li > .nav-link {
@@ -82,7 +82,7 @@ header {
   font-size: 16px;
   gap: 0.25rem;
   flex-wrap: nowrap;
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
   padding: 0.25rem 0.6125rem;
   white-space: nowrap;
   background: none;
@@ -106,16 +106,17 @@ header {
 }
 
 .navigation > li:hover > .nav-link{
-  border: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+  color: var(--link-hover);
 }
 
 .navigation > li:hover .dropdown{
   display: block;
 }
 
-.nav-link {
+.item-title .nav-link {
   text-decoration: none;
-  color: inherit;
+  color: var(--link-grey) !important;
 }
 
 @keyframes fadeIn {
@@ -173,7 +174,7 @@ header {
   padding: 0.5rem;
   gap: 1rem;
   width: 100%;
-  border-radius: 1rem;
+  /*border-radius: 1rem;*/
   border: 1px solid transparent;
 }
 
@@ -189,13 +190,13 @@ li .item-title a {
   color: var(--white);
 }
 
-li .item-title a:hover {
-  color: var(--black);
+.list-items-with-description li {
+  color: var(--link-gray);
 }
 
 .list-items-with-description li:hover {
-  border: 1px solid var(--dark-border);
-  color: black;
+  border-bottom: 1px solid var(--dark-border);
+  color: var(--header-color);
 }
 
 .list-items-with-description li svg {
@@ -208,10 +209,6 @@ li .item-title a:hover {
 .item-title h3 {
   font-weight: 500;
   font-size: 0.875rem;
-}
-
-.dark .item-title h3 {
-  color: var(--white);
 }
 
 .item-title p {

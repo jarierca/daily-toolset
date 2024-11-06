@@ -39,7 +39,7 @@ const FindReplace = ({ toggleDarkMode, isDarkMode }) => {
   };
 
   return (
-    <div className="container mt-5 px-5">
+    <div className="container px-5">
       <div className="form-group">
         <div className="form-header-group">
           <div><h2 className="mb-4">Find & Replace</h2></div>
@@ -63,7 +63,7 @@ const FindReplace = ({ toggleDarkMode, isDarkMode }) => {
         
         <div className="btn-row mb-4">
           <input placeholder="Search text..." className="inpt-txt" type="text" value={searchText} onChange={handleSearchTextChange} />
-          <input placeholder="Replacement text..." className="inpt-txt" type="text" value={replaceText} onChange={handleReplaceTextChange} />
+          <input placeholder="Replacement text..." className="inpt-txt ml-3 " type="text" value={replaceText} onChange={handleReplaceTextChange} />
         </div>
 
         <textarea
