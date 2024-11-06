@@ -1,17 +1,15 @@
 {
   "files": {
-    "main.css": "/daily-toolset/static/css/main.2462e81c.chunk.css",
-    "main.js": "/daily-toolset/static/js/main.d86b9c9c.chunk.js",
-    "main.js.map": "/daily-toolset/static/js/main.d86b9c9c.chunk.js.map",
-    "runtime~main.js": "/daily-toolset/static/js/runtime~main.add72a2e.js",
-    "runtime~main.js.map": "/daily-toolset/static/js/runtime~main.add72a2e.js.map",
-    "static/js/2.b190f7d7.chunk.js": "/daily-toolset/static/js/2.b190f7d7.chunk.js",
-    "static/js/2.b190f7d7.chunk.js.map": "/daily-toolset/static/js/2.b190f7d7.chunk.js.map",
+    "main.css": "/daily-toolset/static/css/main.9668b8dd.css",
+    "main.js": "/daily-toolset/static/js/main.d2c8fdaf.js",
+    "static/media/heads.png": "/daily-toolset/static/media/heads.1164777bdedfeee46102.png",
+    "static/media/tails.png": "/daily-toolset/static/media/tails.31a6d4d93a6f7dcdbec9.png",
     "index.html": "/daily-toolset/index.html",
-    "precache-manifest.b5a3afb4342cbb6c886a75fc6daae643.js": "/daily-toolset/precache-manifest.b5a3afb4342cbb6c886a75fc6daae643.js",
-    "service-worker.js": "/daily-toolset/service-worker.js",
-    "static/css/main.2462e81c.chunk.css.map": "/daily-toolset/static/css/main.2462e81c.chunk.css.map",
-    "static/media/heads.png": "/daily-toolset/static/media/heads.e3e1708f.png",
-    "static/media/tails.png": "/daily-toolset/static/media/tails.9f9af0a7.png"
-  }
+    "main.9668b8dd.css.map": "/daily-toolset/static/css/main.9668b8dd.css.map",
+    "main.d2c8fdaf.js.map": "/daily-toolset/static/js/main.d2c8fdaf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9668b8dd.css",
+    "static/js/main.d2c8fdaf.js"
+  ]
 }
