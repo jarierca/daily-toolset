@@ -30,7 +30,7 @@ const SplitTextPositions = ({ toggleDarkMode, isDarkMode }) => {
       return;
     }
 
-    const lines = originalText.trim().split("\n");
+    const lines = originalText.split("\n");
     const result = lines.map((line, lineIndex) => {
       if (!line) return { lineNumber: lineIndex + 1, parts: [] };
 
